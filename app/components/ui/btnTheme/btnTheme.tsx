@@ -1,15 +1,20 @@
 "use client";
+
 import { useCallback, useMemo, useState } from "react";
 import styles from "./btnTheme.module.css";
+const isServer = typeof window === "undefined";
 
-const getIsDark = (): boolean =>
-  document.documentElement.classList.contains("dark");
+const getIsDark = (): boolean => {
+  if (isServer) return false;
+  return document?.documentElement.classList.contains("dark");
+};
 
 export const BtnTheme = () => {
   const [isDark, setIsDark] = useState(getIsDark());
 
   const handleClick = useCallback(() => {
-    const rootList = document.documentElement.classList;
+    if (isServer) return;
+    const rootList = document?.documentElement.classList;
     setIsDark((dark) => !dark);
     if (rootList.contains("dark")) return rootList.remove("dark");
     rootList.add("dark");
