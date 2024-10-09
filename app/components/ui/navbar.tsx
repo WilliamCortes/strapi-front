@@ -3,26 +3,9 @@ import Image from "next/image";
 import logo from "~/app/assets/logo.png";
 import { BtnTheme } from "./btnTheme";
 
-type Props = {
-  option?: string[];
-};
+type TOption = { href: string; label: string };
 
-const options = [
-  {
-    href: "#",
-    label: "Nuestra Empresa",
-  },
-  {
-    href: "#",
-    label: "Atención al Cliente",
-  },
-  {
-    href: "#",
-    label: "Participa",
-  },
-];
-
-const Option = ({ href, label }: { href: string; label: string }) => (
+const Option: FC<TOption> = ({ href, label }) => (
   <li>
     <a
       href={href}
@@ -35,7 +18,9 @@ const Option = ({ href, label }: { href: string; label: string }) => (
   </li>
 );
 
-export const Navbar: FC<Props> = () => {
+export type TNavbar = { options: TOption[] };
+
+export const Navbar: FC<TNavbar> = ({ options }) => {
   return (
     <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 pr-6 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

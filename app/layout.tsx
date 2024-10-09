@@ -21,6 +21,21 @@ export const metadata: Metadata = {
     "Fundación Fondo Acueducto Inter-veredal Mesitas de Santa Inés y San Mateo.",
 };
 
+const navbarOptions = [
+  {
+    href: "#",
+    label: "Nuestra Empresa",
+  },
+  {
+    href: "#",
+    label: "Atención al Cliente",
+  },
+  {
+    href: "#",
+    label: "Participa",
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +46,7 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} ${geistSans.variable}  antialiased`}
       >
-        <Navbar />
+        <Navbar options={navbarOptions} />
         {children}
       </body>
     </html>

@@ -73,11 +73,11 @@ a {
 
 /* ********** components************/
 
-/* BrandsBlock */
+/* ImageBlock */
 
-.bb-img {
+.ib-img {
   width: 100%;
-  height: 180px;
+  /* height: 180px; */
   object-fit: cover;
-  object-position: left;
+  object-position: top;
 }
